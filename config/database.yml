@@ -1,8 +1,10 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  port: 5422
+  username: root
+  password:
+  host: localhost
 
 development:
   <<: *default
@@ -11,6 +13,7 @@ development:
 test:
   <<: *default
   database: novena_test
+
 production:
   <<: *default
   database: novena_production

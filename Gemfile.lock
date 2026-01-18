@@ -262,6 +262,8 @@ GEM
     msgpack (1.8.0)
     multi_json (1.17.0)
     mutex_m (0.3.0)
+    mysql2 (0.5.7)
+      bigdecimal
     net-http (0.6.0)
       uri
     net-imap (0.4.22)
@@ -287,9 +289,6 @@ GEM
     parser (3.3.7.0)
       ast (~> 2.4.1)
       racc
-    pg (1.6.2)
-    pg (1.6.2-aarch64-linux)
-    pg (1.6.2-x86_64-linux)
     popper_js (2.11.8)
     pp (0.6.3)
       prettyprint
@@ -463,7 +462,7 @@ DEPENDENCIES
   jbuilder
   kaminari
   meta-tags
-  pg (~> 1.1)
+  mysql2
   puma (>= 5.0)
   rails (~> 7.1.6)
   rubocop
