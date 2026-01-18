@@ -2,20 +2,18 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  host: localhost
+  username: <%= ENV.fetch("NOVENA_DATABASE_USERNAME", "root") %>
+  password: <%= ENV.fetch("NOVENA_DATABASE_PASSWORD", "") %>
+  host: <%= ENV.fetch("NOVENA_DATABASE_HOST", "localhost") %>
 
 development:
   <<: *default
-  database: novena_development
+  database: <%= ENV.fetch("NOVENA_DATABASE_NAME_DEV", "novena_development") %>
 
 test:
   <<: *default
-  database: novena_test
+  database: <%= ENV.fetch("NOVENA_DATABASE_NAME_TEST", "novena_test") %>
 
 production:
   <<: *default
-  database: novena_production
-  username: novena
-  password: <%= ENV["NOVENA_DATABASE_PASSWORD"] %>
+  database: <%= ENV.fetch("NOVENA_DATABASE_NAME_PROD", "novena_production") %>
