@@ -83,3 +83,5 @@ gem 'activeadmin'
 # Plus integrations with:
 gem 'cancancan'
 gem 'devise'
+
+gem 'meta-tags'
