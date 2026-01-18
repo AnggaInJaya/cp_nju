@@ -1,6 +1,5 @@
 class AboutsController < ApplicationController
   def index
-    # @about = About.first
-    @about = Tentang.first
+    @about = About.first
   end
 end
