@@ -1,0 +1,31 @@
+<div class="container my-5">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <!-- Card -->
+        <% @products.each do |product| %>
+        <div class="swiper-slide">
+            <div class="card h-100 shadow-sm border-0 product-card">
+            <% if product.avatars.attached? %>
+                <img src="<%= product.avatars.first.url %>" loading="lazy" class="card-img-top" alt="<%= product.name %>" style="height: 200px; object-fit: cover;">
+            <% else %>
+                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px; object-fit: cover;">
+                <span class="text-muted">No Image</span>
+                </div>
+            <% end %>
+
+            <div class="card-body text-center" style="height: 60px;">
+                <div class="" style="font-size: small;">
+                <a href="<%= product_path(product) %>" class="stretched-link text-decoration-none">
+                    <p class="text-sm text-dark"><%= product.name %></p>
+                </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <!-- Optional controls -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<%= render 'layouts/hero_banner' %>
+
+<section id="about" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <%= @about.short_content %>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%= render 'products/products_slider' %>
+<%= render 'layouts/advantages' %>
+<%= render 'layouts/location' %>
+
+<script>
+  new Swiper('.mySwiper', {
+    slidesPerView: 1,
+    spaceBetween: 16,
+    slidesPerGroup: 1, // slide 1 by 1
+    loop: true,
+
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    breakpoints: {
+      768: {
+        slidesPerView: 4,
+      },
+      992: {
+        slidesPerView: 6,
+      },
+    },
+  });
+</script>

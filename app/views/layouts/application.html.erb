@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Novenajaya</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+
+    <style>
+        /* Gaya Kustom untuk Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('placeholder-tekstil.jpg') center center no-repeat;
+            /* Ganti 'placeholder-tekstil.jpg' dengan gambar tekstil industri/laminating PT Novena */
+            background-size: cover;
+            height: 80vh; 
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Gaya untuk Feature Cards */
+        .feature-card {
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            min-height: 250px;
+        }
+        .feature-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .product-card {
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* START: Gaya Kustom untuk Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            color: #FFF;
+            transform: scale(1.1);
+        }
+        /* Gradient kustom untuk tombol CTA */
+        .cta-gradient {
+            background-image: linear-gradient(to right, #10b981, #06b6d4); /* Emerald ke Cyan */
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        .cta-gradient:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+    <%#= render 'layouts/hero_banner' %>
+    <%= yield %>
+
+    <%= render 'layouts/footer' %>
+
+    <a href="https://wa.me/<%= @contact.wa_number %>?text=<%= @wa_title %>" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

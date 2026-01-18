@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5422
+
+development:
+  <<: *default
+  database: novena_development
+
+test:
+  <<: *default
+  database: novena_test
+production:
+  <<: *default
+  database: novena_production
+  username: novena
+  password: <%= ENV["NOVENA_DATABASE_PASSWORD"] %>

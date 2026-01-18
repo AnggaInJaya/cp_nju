@@ -1,0 +1,47 @@
+<section id="contact-cta" class="py-5 bg-dark text-white text-center">
+    <div class="container">
+        <h2 class="fw-bold">Siap Mendukung Proyek Anda?</h2>
+        <p class="lead mb-4">Konsultasikan Kebutuhan Anda &rarr;</p>
+        <a href="https://wa.me/<%= @contact.wa_number %>?text=<%= @wa_title %>" target="_blank" class="btn cta-gradient rounded-pill px-4 fw-semibold"><i class="fab fa-whatsapp me-2"></i> Chat Via WhatsApp</a>
+    </div>
+</section>
+
+<footer id="footer" class="py-5 bg-secondary text-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold text-warning">PT Novena Jaya Utama</h5>
+                <p class="text-white-50">Produsen tekstil laminating terkemuka di Bandung, fokus pada kualitas dan kemitraan jangka panjang.</p>
+            </div>
+
+            <div class="col-md-2 mb-4">
+                <h5 class="fw-bold">Link Cepat</h5>
+                <ul class="list-unstyled text-white-50">
+                    <li><%= link_to "Home", root_path, class: "text-decoration-none text-white-50" %></li>
+                    <li>
+                        <%= link_to "Tentang Kami", abouts_path, class: "text-decoration-none text-white-50" %>
+                    </li>
+                    <li><%= link_to "Produk", products_path, class: "text-decoration-none text-white-50" %></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">Kontak Kami</h5>
+                <p class="text-white-50 mb-1"><i class="fas fa-map-marker-alt me-2"></i> Bandung, Jawa Barat</p>
+                <p class="text-white-50 mb-1"><i class="fas fa-envelope me-2"></i> sales@novenajayautama.co.id</p>
+                <p class="text-success fw-bold"><i class="fab fa-whatsapp me-2"></i> +62 851-177-96669</p>
+            </div>
+
+            <div class="col-md-2 mb-4">
+                <h5 class="fw-bold">Ikuti Kami</h5>
+                <a href="#" class="text-white me-2"><i class="fab fa-linkedin fa-2x"></i></a>
+                <a href="#" class="text-white me-2"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </div>
+
+        <hr class="mt-4 border-warning">
+        <div class="text-center text-white-50">
+            <p class="mb-0">© 2025 PT Novena Jaya Utama. Hak Cipta Dilindungi.</p>
+        </div>
+    </div>
+</footer>

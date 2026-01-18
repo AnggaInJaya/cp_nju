@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Novena Jaya Utama - Spesialis Tekstil Laminating Industri</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        /* Gaya Kustom untuk Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('placeholder-tekstil.jpg') center center no-repeat;
+            /* Ganti 'placeholder-tekstil.jpg' dengan gambar tekstil industri/laminating PT Novena */
+            background-size: cover;
+            height: 80vh; 
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Gaya untuk Feature Cards */
+        .feature-card {
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            min-height: 250px;
+        }
+        .feature-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        /* START: Gaya Kustom untuk Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            color: #FFF;
+            transform: scale(1.1);
+        }
+        /* END: Gaya Kustom untuk Floating WhatsApp Button */
+    </style>
+</head>
+<body>
+
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/hero_banner' %>
+
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 class="mb-4 fw-bold">Lebih Dari Sekadar Bahan Baku, Kami Adalah Mitra Teknis Anda</h2>
+                    <p class="fs-5 text-muted">PT Novena Jaya Utama, berlokasi di Bandung, berfokus pada penyediaan bahan baku tekstil setengah jadi dengan teknologi laminating canggih. Kami berkomitmen pada **inovasi, presisi, dan ketahanan** untuk mendukung performa produk akhir mitra kami.</p>
+                </div>
+            </div>
+            <!--
+            <div class="row text-center mt-5">
+                <div class="col-md-4">
+                    <h3 class="display-5 fw-bolder text-warning">15+</h3>
+                    <p class="text-muted">Tahun Pengalaman Industri</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="display-5 fw-bolder text-warning">500+</h3>
+                    <p class="text-muted">Formula Bahan Baku Dikembangkan</p>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="display-5 fw-bolder text-warning">3</h3>
+                    <p class="text-muted">Sertifikasi Standar Kualitas</p>
+                </div>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <%= yield%>
+
+    <section id="products" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Solusi Tekstil Laminating Kami Melayani Berbagai Sektor Krusial</h2>
+            <div class="row g-4">
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center feature-card border-0 bg-danger text-white">
+                        <div class="card-body">
+                            <i class="fas fa-shield-alt fa-3x mb-3"></i>
+                            <h5 class="card-title fw-bold">Pertahanan & Militer</h5>
+                            <p class="card-text">Bahan baku berstandar tinggi untuk rompi anti peluru, helm, dan perlengkapan taktis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center feature-card">
+                        <div class="card-body">
+                            <i class="fas fa-car fa-3x mb-3 text-primary"></i>
+                            <h5 class="card-title fw-bold">Otomotif & Interior</h5>
+                            <p class="card-text">Tekstil laminating untuk jok mobil, headliner, dan aplikasi interior yang tahan lama.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center feature-card">
+                        <div class="card-body">
+                            <i class="fas fa-shopping-bag fa-3x mb-3 text-success"></i>
+                            <h5 class="card-title fw-bold">Gaya Hidup & Aksesori</h5>
+                            <p class="card-text">Bahan baku tahan air dan ringan untuk tas, sepatu, dan perlengkapan outdoor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 text-center feature-card">
+                        <div class="card-body">
+                            <i class="fas fa-layer-group fa-3x mb-3 text-info"></i>
+                            <h5 class="card-title fw-bold">Aplikasi Khusus</h5>
+                            <p class="card-text">Solusi material untuk karpet industri, insulasi, dan kebutuhan spesifik lainnya.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center mt-5">
+                <%= link_to products_path, class: "btn btn-outline-dark btn-lg" do %>
+                    Lihat Katalog Produk Selengkapnya
+                <% end  %>
+            </div>
+        </div>
+    </section>
+
+    <section id="excellence" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-4 fw-bold">Keunggulan Kami: Kualitas, Presisi, dan Kustomisasi</h2>
+                    <p class="lead">Kami memastikan setiap produk yang keluar dari fasilitas kami di Bandung memenuhi standar kualitas tertinggi industri B2B.</p>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-light"><i class="fas fa-check-circle text-primary me-2"></i> **Teknologi Laminating Mutakhir:** Menjamin ikatan kuat, tahan air, dan daya tahan maksimal.</li>
+                        <li class="list-group-item bg-light"><i class="fas fa-drafting-compass text-primary me-2"></i> **Kustomisasi dan R&D:** Pengembangan spesifikasi bahan baku (lebar, ketebalan, daya tahan) sesuai kebutuhan unik klien.</li>
+                        <li class="list-group-item bg-light"><i class="fas fa-certificate text-primary me-2"></i> **Standar Keamanan Tertinggi:** Material khusus untuk aplikasi pertahanan/militer yang bersertifikasi dan teruji ketahanan.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Kunjungi Fasilitas Pabrik Kami di Bandung</h2>
+            <div class="row">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <div style="height: 550px; background-color: #eee; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;">
+                      <iframe
+                        src="https://www.google.com/maps?q=Jl.+Aki+Padma+Utara+No.277%2C+Babakan%2C+Kec.+Babakan+Ciparay%2C+Kota+Bandung%2C+Jawa+Barat+40222&output=embed"
+                        width="750" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                      </iframe>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="card p-4 shadow h-100">
+                        <h4 class="card-title text-primary fw-bold">Informasi Kantor & Pabrik</h4>
+                        <p class="mb-3">Kami siap menerima kunjungan mitra bisnis dengan perjanjian terlebih dahulu.</p>
+                        
+                        <p class="mb-2"><strong><i class="fas fa-map-marker-alt me-2"></i> Alamat:</strong> <br>Jl. Aki Padma Utara No.277, Babakan, Kec. Babakan Ciparay, Kota Bandung, Jawa Barat 40222</p>
+                        
+                        <p class="mb-2"><strong><i class="fas fa-phone me-2"></i> Telepon:</strong> <br>(022) XXX-XXXX</p>
+                        
+                        <p class="mb-2 text-success fw-bold"><strong><i class="fab fa-whatsapp me-2"></i> WhatsApp Bisnis:</strong> <br>+62 851-177-96669</p>
+                        
+                        <h6 class="fw-bold mt-3">Jam Operasional:</h6>
+                        <ul class="list-unstyled mb-4 small">
+                            <li><i class="far fa-clock me-2"></i> **Senin - Sabtu:** Buka 24 jam</li>
+                            <li><i class="far fa-clock me-2"></i> **Minggu:** Tutup</li>
+                        </ul>
+                        
+                        <a href="https://maps.google.com/?cid=14700371053933138485&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" target="_blank" class="btn btn-primary mt-auto">Lihat Rute di Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%= render 'layouts/footer' %>
+    
+    <a href="https://wa.me/<%= @contact.wa_number %>?text=<%= @wa_title %>" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

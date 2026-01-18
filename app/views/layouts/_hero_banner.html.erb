@@ -1,0 +1,47 @@
+<style>
+  .carousel-item {
+    padding: 5px !important;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    background: none !important;
+    border: none !important;
+  }
+
+  .carousel-control-prev:focus,
+  .carousel-control-next:focus,
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+</style>
+
+<section>
+   <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% Banner.all.each_with_index do |banner, index| %>
+      <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+        <% if banner.photo.attached? %>
+          <%= image_tag banner.photo, class: "d-block w-100", alt: banner.title %>
+        <% else %>
+          <div class="d-block w-100" alt="Slide <%= index + 1 %>" >
+            <span class="text-muted">No Image</span>
+          </div>
+        <% end %>
+        <div class="carousel-caption d-none d-md-block">
+          <h5><%= banner.title %></h5>
+          <p><%= banner.description %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</section>

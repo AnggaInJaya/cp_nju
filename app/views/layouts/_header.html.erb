@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+        <%= link_to 'Novena Jaya Utama', root_path, class: 'navbar-brand fw-bold' %>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <%= link_to 'Tentang Kami', abouts_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'Produk & Solusi', products_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'Lokasi', root_path, class: 'nav-link' %>
+                </li>
+                <li class="nav-item ms-lg-3">
+                    <a href="https://wa.me/<%= @contact.wa_number %>?text=<%= @wa_title %>" target="_blank" class="btn cta-gradient rounded-pill px-4 fw-semibold"><i class="fab fa-whatsapp me-2"></i> Hubungi Kami</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
