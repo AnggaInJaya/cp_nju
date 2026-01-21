@@ -1,0 +1,42 @@
+<%= form_with(model: [:cms, about], local: true) do |form| %>
+  <% if about.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(about.errors.count, "error") %> prohibited this about page from being saved:</h4>
+      <ul>
+        <% about.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, "Simple Description", class: "form-label" %>
+    <%= form.text_area :description, rows: 3, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :short_content, "Short Content (Rich Text)", class: "form-label" %>
+    <%= form.rich_text_area :short_content, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :content, "Main Content (Rich Text)", class: "form-label" %>
+    <%= form.rich_text_area :content, class: "form-control", style: "min-height: 300px;" %>
+  </div>
+
+  <div class="mb-3 form-check">
+    <%= form.check_box :active, class: "form-check-input" %>
+    <%= form.label :active, class: "form-check-label" %>
+  </div>
+
+  <div class="d-flex justify-content-end gap-2">
+    <%= link_to 'Cancel', cms_abouts_path, class: "btn btn-secondary" %>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

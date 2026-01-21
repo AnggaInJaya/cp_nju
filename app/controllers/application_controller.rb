@@ -6,8 +6,13 @@ include ERB::Util # Makes 'url_encode' and 'u' methods available without the mod
 class ApplicationController < ActionController::Base
   before_action :set_wa_number
   before_action :default_meta_tags
+  helper_method :current_user
 
   private
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id])
+  end
 
   def set_wa_number
     @contact = Contact.where(active: true).first

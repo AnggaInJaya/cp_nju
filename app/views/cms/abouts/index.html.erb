@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">About Pages</h1>
+  <div class="btn-toolbar mb-2 mb-md-0">
+    <%= link_to 'New About Page', new_cms_about_path, class: "btn btn-sm btn-outline-primary" %>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Short Content</th>
+        <th scope="col">Active</th>
+        <th scope="col">Created At</th>
+        <th scope="col" class="text-end">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @abouts.each do |about| %>
+        <tr>
+          <td class="fw-medium"><%= about.name %></td>
+          <td><%= truncate(about.description, length: 50) %></td>
+          <td><%= truncate(strip_tags(about.short_content.to_s), length: 50) %></td>
+          <td>
+            <% if about.active %>
+              <span class="badge bg-success">Active</span>
+            <% else %>
+              <span class="badge bg-secondary">Draft</span>
+            <% end %>
+          </td>
+          <td><%= about.created_at.strftime("%B %d, %Y") %></td>
+          <td class="text-end">
+            <div class="btn-group">
+              <%= link_to edit_cms_about_path(about), class: "btn btn-sm btn-outline-secondary", title: "Edit" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+              <%= link_to cms_about_path(about), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{about.name}?" }, class: "btn btn-sm btn-outline-danger", title: "Delete" do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,39 @@
+<%= form_with(model: [:cms, banner], local: true) do |form| %>
+  <% if banner.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(banner.errors.count, "error") %> prohibited this banner from being saved:</h4>
+      <ul>
+        <% banner.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :photo, "banner Images (High Quality)", class: "form-label" %>
+    <%= form.file_field :photo, multiple: true, class: "form-control" %>
+    <div class="form-text">PNG, JPG, GIF up to 10MB</div>
+  </div>
+
+  <% if banner.photo.attached? %>
+    <div class="mb-3">
+      <label class="form-label">Attached Images:</label>
+      <div class="row g-2">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" style="width: 40%;">
+          <%= image_tag banner.photo, class: "img-fluid rounded" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="d-flex justify-content-end gap-2">
+    <%= link_to 'Cancel', cms_banners_path, class: "btn btn-secondary" %>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
