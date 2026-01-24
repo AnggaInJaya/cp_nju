@@ -4,7 +4,7 @@
   <p style="color:red"><%= flash[:alert] %></p>
 <% end %>
 
-<%= form_with url: cms_login_path, method: :post, local: true do %>
+<%= form_with url: cms_login_path, method: :post, local: true, data: { turbo: false } do %>
   <div>
     <%= label_tag :email %><br>
     <%= email_field_tag :email %>
