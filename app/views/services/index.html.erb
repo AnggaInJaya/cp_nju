@@ -1,64 +1,12 @@
-<style>
-    /* Mengatur font kustom dan latar belakang */
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: #f8f9fa; /* Warna latar belakang umum */
-    }
-    /* Warna merek */
-    .prima-text { color: #06b6d4; /* Cyan */ }
-    .prima-brand { color: #10b981; /* Teal/Emerald */ }
-
-    /* Gaya Khusus untuk Portofolio */
-    .portfolio-item {
-        background-color: white;
-        border-radius: 1rem;
-        overflow: hidden;
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-        transition: all 0.3s ease;
-    }
-    .portfolio-item:hover {
-        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
-    }
-
-    .fade-in {
-  opacity: 0;
-  animation: fadeIn 1s forwards;
-  animation-delay: var(--delay, 0s);
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-</style>
-
-
-<!-- Daftar Proyek Portofolio -->
 <section id="portfolio-list" class="py-5">
     <div class="container container-lg text-center">
-        <h2 class="display-4 fw-bold text-dark">Service Kami</h2>
+        <h2 class="display-4 fw-bold text-dark">Layanan Kami</h2>
         <p class="lead text-muted">Berikut adalah beberapa layanan yang dapat kami tawarkan.</p>
     </div>
 
     <div class="container container-lg">
         <div class="row g-5">
-            <!-- Proyek 1: Peluncuran Produk (Korporat) -->
-            <% @services.each do |service| %>
-            <div class="col-lg-12 fade-in" style="--delay: <%= rand(0..2) %>s">
-                <div class="portfolio-item row g-0">
-                    <div class="col-lg-6">
-                        <img src="<%= service.avatars.first&.url %>" class="img-fluid" alt="">
-                    </div>
-                    <div class="col-lg-6 p-4 p-md-5">
-                        <h2 class="h3 fw-bold <%= ['text-primary','text-secondary','text-success','text-danger','text-warning','text-info'].sample %>">
-                            <%= service.name %>
-                        </h2>
-                        <hr class="my-3">
-                        <%= simple_format(service.description) %>
-                    </div>
-                </div>
-            </div>
-            <% end %>
-
+            <%= render partial: 'service', collection: @services %>
         </div>
     </div>
 </section>
@@ -66,7 +14,7 @@
 <section class="py-4 bg-white border-top">
     <div class="container container-lg d-flex justify-content-between align-items-center flex-column flex-md-row">
         <h4 class="h5 fw-bold mb-3 mb-md-0">Tertarik? Mari Wujudkan Visi Anda.</h4>
-        <a href="index.html#contact" class="btn cta-gradient rounded-pill px-4 fw-semibold">
+        <a href="https://wa.me/<%= @contact.wa_number %>?text=<%= @wa_title %>" target="_blank" class="btn cta-gradient rounded-pill px-4 fw-semibold">
             Konsultasikan Kebutuhan Anda &rarr;
         </a>
     </div>

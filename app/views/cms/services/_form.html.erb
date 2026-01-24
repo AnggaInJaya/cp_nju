@@ -1,0 +1,49 @@
+<%= form_with(model: [:cms, service], local: true) do |form| %>
+  <% if service.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(service.errors.count, "error") %> prohibited this service page from being saved:</h4>
+      <ul>
+        <% service.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :avatar, "Service Images (High Quality)", class: "form-label" %>
+    <%= form.file_field :avatar, class: "form-control" %>
+    <div class="form-text">PNG, JPG, GIF up to 10MB</div>
+  </div>
+
+  <% if service.avatar.attached? %>
+    <div class="mb-3">
+      <label class="form-label">Attached Images:</label>
+      <div class="row g-2">
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2" style="width: 40%;">
+          <%= image_tag service.avatar, class: "img-fluid rounded" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :content, "Main Content (Rich Text)", class: "form-label" %>
+    <%= form.rich_text_area :content, class: "form-control", style: "min-height: 300px;" %>
+  </div>
+
+  <div class="mb-3 form-check">
+    <%= form.check_box :active, class: "form-check-input" %>
+    <%= form.label :active, class: "form-check-label" %>
+  </div>
+
+  <div class="d-flex justify-content-end gap-2">
+    <%= link_to 'Cancel', cms_abouts_path, class: "btn btn-secondary" %>
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

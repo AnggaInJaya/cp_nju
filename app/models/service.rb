@@ -1,7 +1,7 @@
 class Service < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
-  has_many_attached :avatars
+  has_one_attached :avatar
   has_rich_text :content
 
   def self.ransackable_attributes(auth_object = nil)

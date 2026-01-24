@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :products
     resources :banners
     resources :abouts
+    resources :services
   end
 
   resources :products, only: %i[index show]

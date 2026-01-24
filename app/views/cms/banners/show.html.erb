@@ -47,10 +47,10 @@
             <div class="col-lg-12">
                 <div class="portfolio-item row g-0">
                     <div class="col-lg-6" style="padding: <%= mobile? ? '5px' : '15px' %>;">
-                        <% if @product.avatars.attached? %>
+                        <% if @banner.photo.attached? %>
         <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner rounded shadow-sm">
-            <% @product.avatars.each_with_index do |photo, index| %>
+            <% @banner.photo.each_with_index do |photo, index| %>
               <div class="carousel-item <%= 'active' if index == 0 %>">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="document.getElementById('modalImage').src='<%= url_for(photo) %>'">
                   <%= image_tag photo, class: "d-block w-100", style: "height: 400px; object-fit: cover; cursor: pointer;", alt: @product.name %>
@@ -58,7 +58,7 @@
               </div>
             <% end %>
           </div>
-          <% if @product.avatars.count > 1 %>
+          <% if @banner.photo.count > 1 %>
             <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
@@ -78,10 +78,10 @@
                     
                     <div class="col-lg-6 p-4 p-md-5">
                         <h2 class="h3 fw-bold <%= ['text-primary','text-secondary','text-success','text-danger','text-warning','text-info'].sample %>">
-                            <%= @product.name %>
+                            <%= @banner.title %>
                         </h2>
                         <hr class="my-3">
-                        <%= simple_format(@product.description) %>
+                        <%= simple_format(@banner.description) %>
                     </div>
                 </div>
             </div>

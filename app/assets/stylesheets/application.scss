@@ -1,3 +1,46 @@
 @import "bootstrap";
 @import "trix";
 @import "actiontext";
+
+/* Mengatur font kustom dan latar belakang */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    /* Warna latar belakang umum */
+}
+
+/* Warna merek */
+.prima-text {
+    color: #06b6d4;
+    /* Cyan */
+}
+
+.prima-brand {
+    color: #10b981;
+    /* Teal/Emerald */
+}
+
+/* Gaya Khusus untuk Portofolio */
+.portfolio-item {
+    background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

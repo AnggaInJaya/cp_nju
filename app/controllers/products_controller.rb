@@ -1,14 +1,15 @@
-class ProductsController < ApplicationController
+# frozen_string_literal: true
+
+class ProductsController < ApplicationController # rubocop:disable Style/Documentation
   before_action :set_product, only: %i[show]
   before_action :set_wa_title, only: %i[show]
 
   def index
     @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true).includes(photos_attachments: :blob).page(params[:page]).per(12)
+    @products = @q.result(distinct: true).includes(photos_attachments: :blob).page(params[:page]).per(15)
   end
 
-  def show
-  end
+  def show; end
 
   private
 
@@ -19,6 +20,6 @@ class ProductsController < ApplicationController
   end
 
   def set_wa_title
-    @wa_title = url_encode(@contact.wa_title + " " + @product.name)
+    @wa_title = url_encode("#{@contact.wa_title} #{@product.name}")
   end
 end

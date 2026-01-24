@@ -23,11 +23,11 @@
 <style>
   .carousel-item {
     padding: 5px !important;
-    height: 600px;
+    height: <%= mobile? ? 250 : 600 %>px;
   }
 
   .carousel-item img {
-    height: 600px;
+    height: <%= mobile? ? 250 : 600 %>px;
     width: 100%;
     /* fill area, crop if needed */
     object-fit: cover; 

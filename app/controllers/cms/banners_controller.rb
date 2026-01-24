@@ -45,6 +45,6 @@ class Cms::BannersController < Cms::BaseController
   end
 
   def banner_params
-    params.require(:banner).permit(:name, :description, :category_id, avatars: [])
+    params.require(:banner).permit(:title, :photo)
   end
 end

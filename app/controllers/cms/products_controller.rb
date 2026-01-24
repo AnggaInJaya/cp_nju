@@ -26,7 +26,17 @@ class Cms::ProductsController < Cms::BaseController
   end
 
   def update
-    if @product.update(product_params)
+    clean_params = product_params
+    new_avatars = clean_params.delete(:avatars)
+
+    if params[:remove_avatars].present?
+      params[:remove_avatars].each do |avatar_id|
+        @product.avatars.find(avatar_id).purge
+      end
+    end
+
+    if @product.update(clean_params)
+      @product.avatars.attach(new_avatars) if new_avatars && new_avatars.reject(&:blank?).present?
       redirect_to cms_products_path, notice: 'Product was successfully updated.'
     else
       render :edit
