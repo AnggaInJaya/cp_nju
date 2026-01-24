@@ -1,4 +1,4 @@
-import "trix"
+// import "trix"
 import "@hotwired/turbo-rails"
 import "controllers"
-import "@rails/actiontext"
+// import "@rails/actiontext"
